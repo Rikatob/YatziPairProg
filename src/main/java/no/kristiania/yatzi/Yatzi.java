@@ -9,12 +9,13 @@ public class Yatzi {
         int score = 0;
 
         if (type.equals(YatziCombination.CHANCE)) {
-
             score = 15;
         }
         if (type.equals(YatziCombination.ONES)) {
-
             score = 2;
+        }
+        if (type.equals(YatziCombination.TWOS)) {
+            score = 4;
         }
         return score;
 
