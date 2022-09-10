@@ -22,6 +22,14 @@ public class YatziTest {
         assertEquals(4,yatziGame.scoreAs(YatziCombination.TWOS));
     }
 
+    @Test
+    void shouldScoreThreesTest(){
+        var yatziGame = new Yatzi(new int[]{
+                3,3,3,2,5
+        });
+        assertEquals(9,yatziGame.scoreAs(YatziCombination.THREES));
+    }
+
 
     @Test
     void shouldScoreChanceTest(){
