@@ -9,10 +9,10 @@
 * [x] PASS PÅ Å OPPRETTE EN .gitignore-fil
 * [x] Legg til en test under src/test/java. Testen skal teste et yatsi-kast, for eksempel at dersom terningene plasseres på "sjanse" skal man få summen av øyne på terningene som score. For å få definert testen må du sette opp maven-compiler-plugin og legge til junit-jupiter som en dependency i pom.xml
 * [x] Sjekk at testen kjører rødt, commit og push
-* [ ] Den andre utvikleren laster også ned prosjektet i IntelliJ. IntelliJ vil nå automatisk oppdage at det er et Maven-prosjekt
-* [ ] Implementer tilstrekkelig kode for at testen kjører grønt og commit
-* [ ] Opprett en ny test, for eksempel å teste at for når en spiller plasserer kastet på "enere" skal hen får summen av alle terningene med én som score
-* [ ] Sjekk at testen kjører rødt, commit og push
+* [x] Den andre utvikleren laster også ned prosjektet i IntelliJ. IntelliJ vil nå automatisk oppdage at det er et Maven-prosjekt
+* [x] Implementer tilstrekkelig kode for at testen kjører grønt og commit
+* [x] Opprett en ny test, for eksempel å teste at for når en spiller plasserer kastet på "enere" skal hen får summen av alle terningene med én som score
+* [x] Sjekk at testen kjører rødt, commit og push
 * [ ] Den andre utvikleren implementerer koden som skal til for å kjøre grønt, committer og pusher
 #Steg 2: Github Actions
 

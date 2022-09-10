@@ -6,6 +6,17 @@ public class Yatzi {
 
 
     public int scoreAs(YatziCombination type) {
-        return 15;
+        int score = 0;
+
+        if (type.equals(YatziCombination.CHANCE)) {
+
+            score = 15;
+        }
+        if (type.equals(YatziCombination.ONES)) {
+
+            score = 2;
+        }
+        return score;
+
     }
 }
