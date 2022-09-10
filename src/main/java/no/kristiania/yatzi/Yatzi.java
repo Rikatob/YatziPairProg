@@ -24,7 +24,6 @@ public class Yatzi {
             }
         }
 
-
         if (type.equals(YatziCombination.CHANCE)) {
             score = 15;
         }
@@ -34,6 +33,10 @@ public class Yatzi {
         if (type.equals(YatziCombination.TWOS)) {
             score = (diceCount.get(2)*2);
         }
+        if (type.equals(YatziCombination.THREES)) {
+            score = (diceCount.get(3)*3);
+        }
+
         return score;
 
     }
