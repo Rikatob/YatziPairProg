@@ -82,5 +82,13 @@ public class YatziTest {
         assertEquals(15,yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
     }
 
+    @Test
+    void shouldScoreFourOfaKind(){
+        var yatziGame = new Yatzi(new int[]{
+                5,5,5,5,4
+        });
+        assertEquals(20,yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
+    }
+
 }
 
