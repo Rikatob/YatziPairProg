@@ -60,4 +60,18 @@ public class YatziTest {
         });
         assertEquals(1+2+5+4+6,yatziGame.scoreAs(YatziCombination.CHANCE));
     }
+
+    @Test
+    void shouldScoreTwoPairsTest(){
+        var yatziGame = new Yatzi(new int[]{
+                1,1,3,4,4
+        });
+        assertEquals(10,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
+
+         yatziGame = new Yatzi(new int[]{
+                5,3,3,5,4
+        });
+        assertEquals(16,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
+    }
+
 }
