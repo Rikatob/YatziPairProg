@@ -1,5 +1,5 @@
 package no.kristiania.yatzi;
 
 public enum YatziCombination {
-    ONES, TWOS, THREES, CHANCE
+    ONES, TWOS, THREES, PAIR, CHANCE
 }

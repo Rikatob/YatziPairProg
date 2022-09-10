@@ -32,6 +32,23 @@ public class YatziTest {
 
 
     @Test
+    void shouldScorePairTest(){
+        var yatziGame = new Yatzi(new int[]{
+                1,2,2,4,5
+        });
+        assertEquals(4,yatziGame.scoreAs(YatziCombination.PAIR));
+    }
+
+    @Test
+    void shouldScoreTheHighestPairTest(){
+        var yatziGame = new Yatzi(new int[]{
+                1,1,3,4,4
+        });
+        assertEquals(8,yatziGame.scoreAs(YatziCombination.PAIR));
+    }
+
+
+    @Test
     void shouldScoreChanceTest(){
         var yatziGame = new Yatzi(new int[]{
                 1,2,3,4,5
