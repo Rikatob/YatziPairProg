@@ -90,5 +90,21 @@ public class YatziTest {
         assertEquals(20,yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
     }
 
+    @Test
+    void shouldScoreSmallStraight(){
+        var yatziGame = new Yatzi(new int[]{
+                1,2,3,4,5
+        });
+        assertEquals(15,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+    }
+
+    @Test
+    void shouldScoreBigStraight(){
+        var yatziGame = new Yatzi(new int[]{
+                2,3,4,5,6
+        });
+        assertEquals(20,yatziGame.scoreAs(YatziCombination.BIGSTRAIGHT));
+    }
+
 }
 
