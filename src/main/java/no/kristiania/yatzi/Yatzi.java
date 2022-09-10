@@ -28,6 +28,9 @@ public class Yatzi {
             case FIVES -> score = (diceCount.get(5) * 5);
             case SIXES -> score = (diceCount.get(6) * 6);
             case PAIR -> score = getPairScore(score, diceCount);
+            case TWOPAIRS -> {
+                score = getTwoPairScore(score, diceCount);
+            }
         }
 
         return score;
@@ -47,15 +50,24 @@ public class Yatzi {
     }
 
     private int getPairScore(int score, Map<Integer, Integer> diceCount) {
+
         for (int key : diceCount.keySet()) {
             if (diceCount.get(key) >= 2) {
                 if ((key * 2) > score) {
                     score = key * 2;
-
                 }
-
             }
         }
         return score;
+    }
+
+
+    private static int getTwoPairScore(int score, Map<Integer, Integer> diceCount) {
+        for (Integer key : diceCount.keySet()) {
+            if (diceCount.get(key) >= 2) {
+                score += key;
+            }
+        }
+        return score * 2;
     }
 }
