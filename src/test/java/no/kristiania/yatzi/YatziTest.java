@@ -12,6 +12,11 @@ public class YatziTest {
                 1,2,1,4,5
         });
         assertEquals(1+1,yatziGame.scoreAs(YatziCombination.ONES));
+
+        yatziGame = new Yatzi(new int[]{
+                3,2,4,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.ONES));
     }
 
     @Test
