@@ -23,6 +23,9 @@ public class Yatzi {
             case ONES -> score = diceCount.get(1);
             case TWOS -> score = (diceCount.get(2) * 2);
             case THREES -> score = (diceCount.get(3) * 3);
+            case FOURS -> score = (diceCount.get(4) * 4);
+            case FIVES -> score = (diceCount.get(5) * 5);
+            case SIXES -> score = (diceCount.get(6) * 6);
             case PAIR -> score = getPairScore(score, diceCount);
         }
 
