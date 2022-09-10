@@ -32,13 +32,25 @@ public class Yatzi {
             case FOURS -> score = (diceCount.get(4) * 4);
             case FIVES -> score = (diceCount.get(5) * 5);
             case SIXES -> score = (diceCount.get(6) * 6);
-            case PAIR -> score = getPairScore(diceCount);
+            case PAIR -> score = getOfAKindScore(2, diceCount);
             case TWOPAIRS -> score = getTwoPairScore(diceCount);
+            case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
+            case FOUROFAKIND -> score = getOfAKindScore(4, diceCount);
 
         }
 
         return score;
 
+    }
+
+    private int getOfAKindScore(int amount, Map<Integer,Integer> diceCount){
+        int score = 0;
+        for (int dice : diceCount.keySet()){
+            if(diceCount.get(dice) >= amount){
+                score = dice * amount;
+            }
+        }
+        return score;
     }
 
 
@@ -60,33 +72,6 @@ public class Yatzi {
         }
         return diceCount;
     }
-
-
-    /***
-     *
-     * @param diceCount Map of the frequency of the dice
-     * @return int of the score from the highest pair value
-     *
-     *  -> Goes through every key (diceType)
-     *      -> Checks if the value (times the dice occur) is equal or more than 2 (one or more pair)
-     *      -> Add the right score for the first pair found in the map.
-     *          -> Then checks if pair occur more than once
-     *             and if it does it change score value to the highest possible.
-     */
-    private int getPairScore(Map<Integer, Integer> diceCount) {
-
-        int score = 0;
-        for (int key : diceCount.keySet()) {
-            if (diceCount.get(key) >= 2) {
-                if ((key * 2) > score) {
-                    score = key * 2;
-                }
-            }
-        }
-        return score;
-    }
-
-
 
     /***
      *

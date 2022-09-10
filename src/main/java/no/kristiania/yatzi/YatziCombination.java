@@ -8,5 +8,5 @@ public enum YatziCombination {
     FIVES,
     SIXES,
     PAIR,
-    TWOPAIRS, CHANCE
+    TWOPAIRS, THREEOFAKIND, FOUROFAKIND, CHANCE
 }
