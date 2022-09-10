@@ -3,7 +3,6 @@ package no.kristiania.yatzi;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Yatzi {
 
@@ -14,9 +13,12 @@ public class Yatzi {
     }
 
 
-    /**--------------------------------------------------------------------
-     * -> Calculate the score of the different combinations in Yatzi game.
-     ----------------------------------------------------------------------*/
+
+    /***
+     *
+     * @param type enum YatziCombination
+     * @return int of the total score for given game
+     */
     public int scoreAs(YatziCombination type) {
         int score = 0;
 
@@ -30,10 +32,9 @@ public class Yatzi {
             case FOURS -> score = (diceCount.get(4) * 4);
             case FIVES -> score = (diceCount.get(5) * 5);
             case SIXES -> score = (diceCount.get(6) * 6);
-            case PAIR -> score = getPairScore(score, diceCount);
-            case TWOPAIRS -> {
-                score = getTwoPairScore(score, diceCount);
-            }
+            case PAIR -> score = getPairScore(diceCount);
+            case TWOPAIRS -> score = getTwoPairScore(diceCount);
+
         }
 
         return score;
@@ -41,10 +42,13 @@ public class Yatzi {
     }
 
 
-    /**--------------------------------------------------------------------------
+    /***
+     *
+     * @return Map of the frequency of the dice
+     *
      * -> Uses one diceRoll to put the dice in a hashmap with key/value as integers.
      * -> key = The dice type <---> value = The number of times the dice occur.
-     ---------------------------------------------------------------------------*/
+     */
     private Map<Integer, Integer> getDiceCount() {
         Map<Integer, Integer> diceCount = new HashMap<>();
         for (int dice : diceRoll) {
@@ -58,15 +62,20 @@ public class Yatzi {
     }
 
 
-    /**--------------------------------------------------------------------------------------------
-     * -> Goes through every key (diceType)
-     * -> Checks if the value (times the dice occur) is equal or more than 2 (one or more pair)
+    /***
+     *
+     * @param diceCount Map of the frequency of the dice
+     * @return int of the score from the highest pair value
+     *
+     *  -> Goes through every key (diceType)
+     *      -> Checks if the value (times the dice occur) is equal or more than 2 (one or more pair)
      *      -> Add the right score for the first pair found in the map.
      *          -> Then checks if pair occur more than once
      *             and if it does it change score value to the highest possible.
-     -----------------------------------------------------------------------------------------------*/
-    private int getPairScore(int score, Map<Integer, Integer> diceCount) {
+     */
+    private int getPairScore(Map<Integer, Integer> diceCount) {
 
+        int score = 0;
         for (int key : diceCount.keySet()) {
             if (diceCount.get(key) >= 2) {
                 if ((key * 2) > score) {
@@ -78,20 +87,26 @@ public class Yatzi {
     }
 
 
-    /**----------------------------------------------------------------------------------
+
+    /***
+     *
+     * @param diceCount Map of the frequency of the dice
+     * @return int of the score from the highest pair value
+     *
      * -> Does the same as getPairScore(), but just add the key (type of dice) to score.
      * -> Multiply the score with two to get the right score.
      * -> (key <--> value)
      *      -> (1 <--> 2), (4 <--> 2), (6 <--> 1)
      *          -> two pairs
      *              -> score = (1 + 4) * 2
-     -------------------------------------------------------------------------------------*/
-    private static int getTwoPairScore(int score, Map<Integer, Integer> diceCount) {
+     */
+    private static int getTwoPairScore(Map<Integer, Integer> diceCount) {
+        int score = 0;
         for (Integer key : diceCount.keySet()) {
             if (diceCount.get(key) >= 2) {
-                score += key;
+                score += key * 2;
             }
         }
-        return score * 2;
+        return score;
     }
 }
