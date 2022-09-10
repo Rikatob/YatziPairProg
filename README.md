@@ -1,3 +1,4 @@
+[![Java CI with Maven](https://github.com/Rikatob/YatziPairProg/actions/workflows/maven.yml/badge.svg)](https://github.com/Rikatob/YatziPairProg/actions/workflows/maven.yml)
 # Yatzi  [Amund Fredrik]
 
 #Steg 1: Kom i gang med testing via Github med Maven
