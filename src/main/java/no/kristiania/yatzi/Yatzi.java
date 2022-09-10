@@ -25,7 +25,7 @@ public class Yatzi {
 
         switch (type) {
             case CHANCE -> score = Arrays.stream(diceRoll).sum();
-            case ONES -> score = diceCount.get(1);
+            case ONES -> score = getOnesToSixesScore(diceCount,1);
             case TWOS -> score = (diceCount.get(2) * 2);
             case THREES -> score = (diceCount.get(3) * 3);
             case FOURS -> score = (diceCount.get(4) * 4);
@@ -42,6 +42,16 @@ public class Yatzi {
 
         return score;
 
+    }
+
+    private int getOnesToSixesScore(Map<Integer, Integer> diceCount, int diceType) {
+        int score = 0;
+        if (!diceCount.containsKey(diceType)) {
+            return score;
+        } else {
+            score = diceCount.get(diceType) * diceType;
+        }
+        return score;
     }
 
     private int getOfAKindScore(int amount, Map<Integer, Integer> diceCount) {
