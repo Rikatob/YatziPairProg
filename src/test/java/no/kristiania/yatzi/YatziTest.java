@@ -54,5 +54,10 @@ public class YatziTest {
                 1,2,3,4,5
         });
         assertEquals(1+2+3+4+5,yatziGame.scoreAs(YatziCombination.CHANCE));
+
+        yatziGame = new Yatzi(new int[]{
+                1,2,5,4,6
+        });
+        assertEquals(1+2+5+4+6,yatziGame.scoreAs(YatziCombination.CHANCE));
     }
 }

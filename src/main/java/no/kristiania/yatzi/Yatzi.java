@@ -1,5 +1,6 @@
 package no.kristiania.yatzi;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -19,7 +20,7 @@ public class Yatzi {
         Map<Integer, Integer> diceCount = getDiceCount();
 
         switch (type) {
-            case CHANCE -> score = 15;
+            case CHANCE -> score = Arrays.stream(diceRoll).sum();
             case ONES -> score = diceCount.get(1);
             case TWOS -> score = (diceCount.get(2) * 2);
             case THREES -> score = (diceCount.get(3) * 3);
