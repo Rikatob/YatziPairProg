@@ -13,6 +13,7 @@ public class YatziTest {
         });
         assertEquals(1+1,yatziGame.scoreAs(YatziCombination.ONES));
 
+        // FAIL
         yatziGame = new Yatzi(new int[]{
                 3,2,4,4,5
         });
@@ -25,6 +26,12 @@ public class YatziTest {
                 1,2,3,2,5
         });
         assertEquals(4,yatziGame.scoreAs(YatziCombination.TWOS));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                3,3,4,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.TWOS));
     }
 
     @Test
@@ -33,6 +40,12 @@ public class YatziTest {
                 3,3,3,2,5
         });
         assertEquals(9,yatziGame.scoreAs(YatziCombination.THREES));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,4,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.THREES));
     }
 
 
@@ -42,6 +55,7 @@ public class YatziTest {
                 1,2,2,4,5
         });
         assertEquals(4,yatziGame.scoreAs(YatziCombination.PAIR));
+
     }
 
     @Test
