@@ -34,11 +34,22 @@ public class Yatzi {
             case SIXES -> score = (diceCount.get(6) * 6);
             case PAIR -> score = getPairScore(diceCount);
             case TWOPAIRS -> score = getTwoPairScore(diceCount);
+            case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
 
         }
 
         return score;
 
+    }
+
+    private int getOfAKindScore(int amount, Map<Integer,Integer> diceCount){
+        int score = 0;
+        for (int dice : diceCount.keySet()){
+            if(diceCount.get(dice) >= amount){
+                score = dice * amount;
+            }
+        }
+        return score;
     }
 
 
