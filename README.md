@@ -2,9 +2,9 @@
 
 #Steg 1: Kom i gang med testing via Github med Maven
 
-* [ ] Finn noen å jobbe sammen med. For bonuspoeng kan du jobbe sammen med noen du ikke kjenner
-* [ ] En av utviklerne oppretter et nytt repository på Github og legger til den andre som collaborator
-* [ ] En av dere laster ned prosjektet i IntelliJ: File > New > Project from version control
+* [x] Finn noen å jobbe sammen med. For bonuspoeng kan du jobbe sammen med noen du ikke kjenner
+* [x] En av utviklerne oppretter et nytt repository på Github og legger til den andre som collaborator
+* [x] En av dere laster ned prosjektet i IntelliJ: File > New > Project from version control
 * [ ] Gjør om prosjektet til et Maven prosjekt
 * [ ] PASS PÅ Å OPPRETTE EN .gitignore-fil
 * [ ] Legg til en test under src/test/java. Testen skal teste et yatsi-kast, for eksempel at dersom terningene plasseres på "sjanse" skal man få summen av øyne på terningene som score. For å få definert testen må du sette opp maven-compiler-plugin og legge til junit-jupiter som en dependency i pom.xml
