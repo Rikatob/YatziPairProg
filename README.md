@@ -30,6 +30,6 @@
 * [x] Den som ikke opprettet pull requesten kan skrive noen review-kommentarer av pull requesten
 * [x] Merge pull requesten
 * [x] Se på commit-loggen hvordan pull requesten inngår i Git loggen
-* [ ] Opprett en ny branch for `feature/score-pair` (denne bør ha minst to test-cases for å sikre at man ikke hardkoder svaret)
+* [x] Opprett en ny branch for `feature/score-pair` (denne bør ha minst to test-cases for å sikre at man ikke hardkoder svaret)
 * [ ] Prøv å opprette en pull request og Squash Merge denne
 * [ ] Sammenlign hvordan de to måtene å merge ser annerledes ut i Git loggen 
