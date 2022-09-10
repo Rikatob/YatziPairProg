@@ -13,7 +13,6 @@ public class Yatzi {
     }
 
 
-
     /***
      *
      * @param type enum YatziCombination
@@ -36,6 +35,8 @@ public class Yatzi {
             case TWOPAIRS -> score = getTwoPairScore(diceCount);
             case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
             case FOUROFAKIND -> score = getOfAKindScore(4, diceCount);
+            case SMALLSTRAIGHT -> score = 15;
+            case BIGSTRAIGHT -> score = 20;
 
         }
 
@@ -43,10 +44,10 @@ public class Yatzi {
 
     }
 
-    private int getOfAKindScore(int amount, Map<Integer,Integer> diceCount){
+    private int getOfAKindScore(int amount, Map<Integer, Integer> diceCount) {
         int score = 0;
-        for (int dice : diceCount.keySet()){
-            if(diceCount.get(dice) >= amount){
+        for (int dice : diceCount.keySet()) {
+            if (diceCount.get(dice) >= amount) {
                 score = dice * amount;
             }
         }
