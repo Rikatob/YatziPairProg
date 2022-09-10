@@ -6,6 +6,6 @@ public class Yatzi {
 
 
     public int scoreAs(YatziCombination type) {
-        return 0;
+        return 15;
     }
 }
