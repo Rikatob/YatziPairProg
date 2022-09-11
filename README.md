@@ -31,5 +31,19 @@
 * [x] Merge pull requesten
 * [x] Se på commit-loggen hvordan pull requesten inngår i Git loggen
 * [x] Opprett en ny branch for `feature/score-pair` (denne bør ha minst to test-cases for å sikre at man ikke hardkoder svaret)
-* [ ] Prøv å opprette en pull request og Squash Merge denne
-* [ ] Sammenlign hvordan de to måtene å merge ser annerledes ut i Git loggen 
+* [x] Prøv å opprette en pull request og Squash Merge denne
+* [x] Sammenlign hvordan de to måtene å merge ser annerledes ut i Git loggen 
+
+#Steg 4: Todo
+* [ ] Bonus, ved tvunget spill skal bonus på 50 poeng gis ut om poengsummen på de 6 singelScore kombinasjonene er 63 poeng eller mer.
+  *     --> [ ] Field med Total score.
+        --> [ ] Klasse "Player"? 
+* [ ] Yatzi, ved alle terninger lik verdi gis yatzi som er 50 poeng.
+
+#Steg 5: Alternativ optimalisering
+* [ ] UI med console.
+* [ ] Tvunget eller åpent spill valg.
+* [ ] Terningkast simulator.
+  *     --> [ ] Mulighet til å velge hvilke terninger som skal beholdes til neste kast.
+* [ ] RankingListe.
+* 
