@@ -25,12 +25,12 @@ public class Yatzi {
 
         switch (type) {
             case CHANCE -> score = Arrays.stream(diceRoll).sum();
-            case ONES -> score = getOnesToSixesScore(diceCount, 1);
-            case TWOS -> score = getOnesToSixesScore(diceCount, 2);
-            case THREES -> score = getOnesToSixesScore(diceCount, 3);
-            case FOURS -> score = getOnesToSixesScore(diceCount, 4);
-            case FIVES -> score = getOnesToSixesScore(diceCount, 5);
-            case SIXES -> score = getOnesToSixesScore(diceCount, 6);
+            case ONES -> score = getSinglesScore(diceCount, 1);
+            case TWOS -> score = getSinglesScore(diceCount, 2);
+            case THREES -> score = getSinglesScore(diceCount, 3);
+            case FOURS -> score = getSinglesScore(diceCount, 4);
+            case FIVES -> score = getSinglesScore(diceCount, 5);
+            case SIXES -> score = getSinglesScore(diceCount, 6);
             case PAIR -> score = getOfAKindScore(2, diceCount);
             case TWOPAIRS -> score = getTwoPairScore(diceCount);
             case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
@@ -43,7 +43,7 @@ public class Yatzi {
 
     }
 
-    private int getOnesToSixesScore(Map<Integer, Integer> diceCount, int diceType) {
+    private int getSinglesScore(Map<Integer, Integer> diceCount, int diceType) {
         int score = 0;
         if (!diceCount.containsKey(diceType)) {
             return score;

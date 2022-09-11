@@ -154,6 +154,12 @@ public class YatziTest {
         });
         assertEquals(0,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
 
+
+        yatziGame = new Yatzi(new int[]{
+                1,2,2,5,5
+        });
+        assertEquals(15,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+
     }
 
     @Test
