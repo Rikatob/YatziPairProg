@@ -43,6 +43,12 @@ public class Yatzi {
 
     }
 
+    /***
+     *
+     * @param diceCount Map of the frequency of the dice
+     * @param diceType Type of yatzi game
+     * @return total score for all singles of one dice as int
+     */
     private int getSinglesScore(Map<Integer, Integer> diceCount, int diceType) {
         int score = 0;
         if (!diceCount.containsKey(diceType)) {
@@ -108,6 +114,11 @@ public class Yatzi {
     }
 
 
+    /***
+     *
+     * @param diceCount Map of the frequency of the dice
+     * @return Score 20 if its big and 15 if its small
+     */
     private int getStraightScore(Map<Integer, Integer> diceCount) {
         int score = 0;
         int keysCombinedValue = 0;
