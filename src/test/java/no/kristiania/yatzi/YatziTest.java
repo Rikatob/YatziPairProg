@@ -56,6 +56,12 @@ public class YatziTest {
         });
         assertEquals(4,yatziGame.scoreAs(YatziCombination.PAIR));
 
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,1,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.PAIR));
+
     }
 
     @Test
@@ -64,6 +70,12 @@ public class YatziTest {
                 1,1,3,4,4
         });
         assertEquals(8,yatziGame.scoreAs(YatziCombination.PAIR));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,1,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.PAIR));
     }
 
 
@@ -78,6 +90,8 @@ public class YatziTest {
                 1,2,5,4,6
         });
         assertEquals(1+2+5+4+6,yatziGame.scoreAs(YatziCombination.CHANCE));
+
+
     }
 
     @Test
@@ -91,6 +105,12 @@ public class YatziTest {
                 5,3,3,5,4
         });
         assertEquals(16,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,1,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
     }
 
     @Test
@@ -99,6 +119,12 @@ public class YatziTest {
                 5,5,3,5,4
         });
         assertEquals(15,yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,1,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
     }
 
     @Test
@@ -107,6 +133,12 @@ public class YatziTest {
                 5,5,5,5,4
         });
         assertEquals(20,yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,1,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
     }
 
     @Test
@@ -115,6 +147,7 @@ public class YatziTest {
                 1,2,3,4,5
         });
         assertEquals(15,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+
     }
 
     @Test

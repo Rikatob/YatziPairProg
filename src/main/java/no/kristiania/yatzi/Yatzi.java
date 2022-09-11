@@ -56,6 +56,8 @@ public class Yatzi {
 
     private int getOfAKindScore(int amount, Map<Integer, Integer> diceCount) {
         int score = 0;
+
+
         for (int dice : diceCount.keySet()) {
             if (diceCount.get(dice) >= amount) {
                 score = dice * amount;
@@ -104,5 +106,9 @@ public class Yatzi {
             }
         }
         return score;
+    }
+
+    private int getStraightScore(){
+        return 0;
     }
 }
