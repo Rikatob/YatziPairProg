@@ -136,4 +136,21 @@ public class Yatzi {
         }
         return score;
     }
+
+    private int getFullHouseScore(Map<Integer,Integer> diceCount){
+        int score = 0;
+        boolean pair = false;
+        boolean triumvirate = false;
+        for (Integer key : diceCount.keySet()) {
+            if (diceCount.get(key) == 2) {
+                score += key * 2;
+                pair = true;
+            }
+            if(diceCount.get(key) == 3){
+                score += key * 3;
+                triumvirate = true;
+            }
+        }
+        return score;
+    }
 }
