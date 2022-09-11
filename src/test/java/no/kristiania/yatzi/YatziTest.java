@@ -7,188 +7,205 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class YatziTest {
 
     @Test
-    void shouldScoreOnesTest(){
+    void shouldScoreOnesTest() {
         var yatziGame = new Yatzi(new int[]{
-                1,2,1,4,5
+                1, 2, 1, 4, 5
         });
-        assertEquals(1+1,yatziGame.scoreAs(YatziCombination.ONES));
+        assertEquals(1 + 1, yatziGame.scoreAs(YatziCombination.ONES));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                3,2,4,4,5
+                3, 2, 4, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.ONES));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.ONES));
     }
 
     @Test
-    void shouldScoreTwosTest(){
+    void shouldScoreTwosTest() {
         var yatziGame = new Yatzi(new int[]{
-                1,2,3,2,5
+                1, 2, 3, 2, 5
         });
-        assertEquals(4,yatziGame.scoreAs(YatziCombination.TWOS));
+        assertEquals(4, yatziGame.scoreAs(YatziCombination.TWOS));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                3,3,4,4,5
+                3, 3, 4, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.TWOS));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.TWOS));
     }
 
     @Test
-    void shouldScoreThreesTest(){
+    void shouldScoreThreesTest() {
         var yatziGame = new Yatzi(new int[]{
-                3,3,3,2,5
+                3, 3, 3, 2, 5
         });
-        assertEquals(9,yatziGame.scoreAs(YatziCombination.THREES));
+        assertEquals(9, yatziGame.scoreAs(YatziCombination.THREES));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,4,4,5
+                6, 2, 4, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.THREES));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.THREES));
     }
 
 
     @Test
-    void shouldScorePairTest(){
+    void shouldScorePairTest() {
         var yatziGame = new Yatzi(new int[]{
-                1,2,2,4,5
+                1, 2, 2, 4, 5
         });
-        assertEquals(4,yatziGame.scoreAs(YatziCombination.PAIR));
+        assertEquals(4, yatziGame.scoreAs(YatziCombination.PAIR));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.PAIR));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.PAIR));
 
     }
 
     @Test
-    void shouldScoreTheHighestPairTest(){
+    void shouldScoreTheHighestPairTest() {
         var yatziGame = new Yatzi(new int[]{
-                1,1,3,4,4
+                1, 1, 3, 4, 4
         });
-        assertEquals(8,yatziGame.scoreAs(YatziCombination.PAIR));
+        assertEquals(8, yatziGame.scoreAs(YatziCombination.PAIR));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.PAIR));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.PAIR));
     }
 
 
     @Test
-    void shouldScoreChanceTest(){
+    void shouldScoreChanceTest() {
         var yatziGame = new Yatzi(new int[]{
-                1,2,3,4,5
+                1, 2, 3, 4, 5
         });
-        assertEquals(1+2+3+4+5,yatziGame.scoreAs(YatziCombination.CHANCE));
+        assertEquals(1 + 2 + 3 + 4 + 5, yatziGame.scoreAs(YatziCombination.CHANCE));
 
         yatziGame = new Yatzi(new int[]{
-                1,2,5,4,6
+                1, 2, 5, 4, 6
         });
-        assertEquals(1+2+5+4+6,yatziGame.scoreAs(YatziCombination.CHANCE));
+        assertEquals(1 + 2 + 5 + 4 + 6, yatziGame.scoreAs(YatziCombination.CHANCE));
 
 
     }
 
     @Test
-    void shouldScoreTwoPairsTest(){
+    void shouldScoreTwoPairsTest() {
         var yatziGame = new Yatzi(new int[]{
-                1,1,3,4,4
+                1, 1, 3, 4, 4
         });
-        assertEquals(10,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
+        assertEquals(10, yatziGame.scoreAs(YatziCombination.TWOPAIRS));
 
-         yatziGame = new Yatzi(new int[]{
-                5,3,3,5,4
+        yatziGame = new Yatzi(new int[]{
+                5, 3, 3, 5, 4
         });
-        assertEquals(16,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
+        assertEquals(16, yatziGame.scoreAs(YatziCombination.TWOPAIRS));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.TWOPAIRS));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.TWOPAIRS));
     }
 
     @Test
-    void shouldScoreThreeOfaKind(){
+    void shouldScoreThreeOfaKind() {
         var yatziGame = new Yatzi(new int[]{
-                5,5,3,5,4
+                5, 5, 3, 5, 4
         });
-        assertEquals(15,yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
+        assertEquals(15, yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.THREEOFAKIND));
     }
 
     @Test
-    void shouldScoreFourOfaKind(){
+    void shouldScoreFourOfaKind() {
         var yatziGame = new Yatzi(new int[]{
-                5,5,5,5,4
+                5, 5, 5, 5, 4
         });
-        assertEquals(20,yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
+        assertEquals(20, yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.FOUROFAKIND));
     }
 
     @Test
-    void shouldScoreSmallStraight(){
+    void shouldScoreSmallStraight() {
         var yatziGame = new Yatzi(new int[]{
-                1,2,3,4,5
+                1, 2, 3, 4, 5
         });
-        assertEquals(15,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+        assertEquals(15, yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
 
 
         yatziGame = new Yatzi(new int[]{
-                1,2,2,5,5
+                1, 2, 2, 5, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
 
     }
 
     @Test
-    void shouldScoreBigStraight(){
+    void shouldScoreBigStraight() {
         var yatziGame = new Yatzi(new int[]{
-                2,3,4,5,6
+                2, 3, 4, 5, 6
         });
-        assertEquals(20,yatziGame.scoreAs(YatziCombination.BIGSTRAIGHT));
+        assertEquals(20, yatziGame.scoreAs(YatziCombination.BIGSTRAIGHT));
 
         // FAIL
         yatziGame = new Yatzi(new int[]{
-                6,2,1,4,5
+                6, 2, 1, 4, 5
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
     }
 
     @Test
-    void shouldScoreFullHouse(){
+    void shouldScoreFullHouse() {
         var yatziGame = new Yatzi(new int[]{
-                2,2,4,4,4
+                2, 2, 4, 4, 4
         });
-        assertEquals(16,yatziGame.scoreAs(YatziCombination.FULLHOUSE));
+        assertEquals(16, yatziGame.scoreAs(YatziCombination.FULLHOUSE));
 
         yatziGame = new Yatzi(new int[]{
-                2,2,4,5,4
+                2, 2, 4, 5, 4
         });
-        assertEquals(0,yatziGame.scoreAs(YatziCombination.FULLHOUSE));
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.FULLHOUSE));
     }
 
+    @Test
+    void shouldScoreYatzi() {
+        var yatziGame = new Yatzi(new int[]{
+                4, 4, 4, 4, 4
+        });
+        assertEquals(50, yatziGame.scoreAs(YatziCombination.YATZI));
+
+        yatziGame = new Yatzi(new int[]{
+                6, 6, 6, 6, 6
+        });
+        assertEquals(50, yatziGame.scoreAs(YatziCombination.YATZI));
+
+        yatziGame = new Yatzi(new int[]{
+                2, 4, 4, 4, 4
+        });
+        assertEquals(0, yatziGame.scoreAs(YatziCombination.YATZI));
+    }
 
 }
 
