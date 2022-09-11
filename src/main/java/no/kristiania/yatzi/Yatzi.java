@@ -131,6 +131,8 @@ public class Yatzi {
      *
      * @param diceCount Map of the frequency of the dice
      * @return Score 20 if its big and 15 if its small
+     * Key in diceCount must be unique therefore the value of combined keys will never be 15 if its not small straight.
+     * And 20 in big straight.
      */
     private int getStraightScore(Map<Integer, Integer> diceCount) {
         int score = 0;
