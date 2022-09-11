@@ -13,7 +13,6 @@ public class Yatzi {
     }
 
 
-
     /***
      *
      * @param type enum YatziCombination
@@ -26,16 +25,17 @@ public class Yatzi {
 
         switch (type) {
             case CHANCE -> score = Arrays.stream(diceRoll).sum();
-            case ONES -> score = diceCount.get(1);
-            case TWOS -> score = (diceCount.get(2) * 2);
-            case THREES -> score = (diceCount.get(3) * 3);
-            case FOURS -> score = (diceCount.get(4) * 4);
-            case FIVES -> score = (diceCount.get(5) * 5);
-            case SIXES -> score = (diceCount.get(6) * 6);
+            case ONES -> score = getSinglesScore(diceCount, 1);
+            case TWOS -> score = getSinglesScore(diceCount, 2);
+            case THREES -> score = getSinglesScore(diceCount, 3);
+            case FOURS -> score = getSinglesScore(diceCount, 4);
+            case FIVES -> score = getSinglesScore(diceCount, 5);
+            case SIXES -> score = getSinglesScore(diceCount, 6);
             case PAIR -> score = getOfAKindScore(2, diceCount);
             case TWOPAIRS -> score = getTwoPairScore(diceCount);
             case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
             case FOUROFAKIND -> score = getOfAKindScore(4, diceCount);
+            case SMALLSTRAIGHT, BIGSTRAIGHT -> score = getStraightScore(diceCount);
 
         }
 
@@ -43,10 +43,28 @@ public class Yatzi {
 
     }
 
-    private int getOfAKindScore(int amount, Map<Integer,Integer> diceCount){
+    /***
+     *
+     * @param diceCount Map of the frequency of the dice
+     * @param diceType Type of yatzi game
+     * @return total score for all singles of one dice as int
+     */
+    private int getSinglesScore(Map<Integer, Integer> diceCount, int diceType) {
         int score = 0;
-        for (int dice : diceCount.keySet()){
-            if(diceCount.get(dice) >= amount){
+        if (!diceCount.containsKey(diceType)) {
+            return score;
+        } else {
+            score = diceCount.get(diceType) * diceType;
+        }
+        return score;
+    }
+
+    private int getOfAKindScore(int amount, Map<Integer, Integer> diceCount) {
+        int score = 0;
+
+
+        for (int dice : diceCount.keySet()) {
+            if (diceCount.get(dice) >= amount) {
                 score = dice * amount;
             }
         }
@@ -91,6 +109,29 @@ public class Yatzi {
             if (diceCount.get(key) >= 2) {
                 score += key * 2;
             }
+        }
+        return score;
+    }
+
+
+    /***
+     *
+     * @param diceCount Map of the frequency of the dice
+     * @return Score 20 if its big and 15 if its small
+     */
+    private int getStraightScore(Map<Integer, Integer> diceCount) {
+        int score = 0;
+        int keysCombinedValue = 0;
+
+        //Likte na her. va smooth
+        for (Integer key : diceCount.keySet()) {
+            keysCombinedValue += key;
+        }
+        if (keysCombinedValue == 15) {
+            score = 15;
+        }
+        if (keysCombinedValue == 20) {
+            score = 20;
         }
         return score;
     }
