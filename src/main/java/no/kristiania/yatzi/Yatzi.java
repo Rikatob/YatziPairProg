@@ -123,6 +123,7 @@ public class Yatzi {
         int score = 0;
         int keysCombinedValue = 0;
 
+        //Likte na her. va smooth
         for (Integer key : diceCount.keySet()) {
             keysCombinedValue += key;
         }
