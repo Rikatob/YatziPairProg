@@ -37,11 +37,23 @@ public class Yatzi {
             case FOUROFAKIND -> score = getOfAKindScore(4, diceCount);
             case SMALLSTRAIGHT, BIGSTRAIGHT -> score = getStraightScore(diceCount);
             case FULLHOUSE -> score = getFullHouseScore(diceCount);
+            case YATZI -> score = getYatziScore(diceCount);
 
         }
 
         return score;
 
+    }
+
+    private int getYatziScore(Map<Integer, Integer> diceCount) {
+        int score = 0;
+        for (Integer key : diceCount.keySet()) {
+            if (diceCount.get(key) == 5) {
+                score = 50;
+            }
+        }
+
+        return score;
     }
 
     /***
@@ -137,7 +149,7 @@ public class Yatzi {
         return score;
     }
 
-    private int getFullHouseScore(Map<Integer,Integer> diceCount){
+    private int getFullHouseScore(Map<Integer, Integer> diceCount) {
         int score = 0;
         boolean pair = false;
         boolean triumvirate = false;
@@ -146,13 +158,13 @@ public class Yatzi {
                 score += key * 2;
                 pair = true;
             }
-            if(diceCount.get(key) == 3){
+            if (diceCount.get(key) == 3) {
                 score += key * 3;
                 triumvirate = true;
             }
         }
 
-        if(!(triumvirate && pair)){
+        if (!(triumvirate && pair)) {
             return 0;
         }
         return score;
