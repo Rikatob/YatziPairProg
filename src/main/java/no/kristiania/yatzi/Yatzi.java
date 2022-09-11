@@ -107,9 +107,11 @@ public class Yatzi {
         return score;
     }
 
+
     private int getStraightScore(Map<Integer, Integer> diceCount) {
         int score = 0;
         int keysCombinedValue = 0;
+
         for (Integer key : diceCount.keySet()) {
             keysCombinedValue += key;
         }
