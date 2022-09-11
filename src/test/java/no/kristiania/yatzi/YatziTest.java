@@ -176,5 +176,14 @@ public class YatziTest {
         assertEquals(0,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
     }
 
+    @Test
+    void shouldScoreFullHouse(){
+        var yatziGame = new Yatzi(new int[]{
+                2,2,4,4,4
+        });
+        assertEquals(16,yatziGame.scoreAs(YatziCombination.FULLHOUSE));
+    }
+
+
 }
 
