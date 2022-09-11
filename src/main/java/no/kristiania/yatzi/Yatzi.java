@@ -36,6 +36,7 @@ public class Yatzi {
             case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
             case FOUROFAKIND -> score = getOfAKindScore(4, diceCount);
             case SMALLSTRAIGHT, BIGSTRAIGHT -> score = getStraightScore(diceCount);
+            case FULLHOUSE -> score = 16;
 
         }
 
