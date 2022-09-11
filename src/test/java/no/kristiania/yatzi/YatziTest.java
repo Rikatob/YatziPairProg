@@ -162,6 +162,12 @@ public class YatziTest {
                 2,3,4,5,6
         });
         assertEquals(20,yatziGame.scoreAs(YatziCombination.BIGSTRAIGHT));
+
+        // FAIL
+        yatziGame = new Yatzi(new int[]{
+                6,2,1,4,5
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.SMALLSTRAIGHT));
     }
 
 }

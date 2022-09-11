@@ -25,18 +25,17 @@ public class Yatzi {
 
         switch (type) {
             case CHANCE -> score = Arrays.stream(diceRoll).sum();
-            case ONES -> score = getOnesToSixesScore(diceCount,1);
-            case TWOS -> score = getOnesToSixesScore(diceCount,2);
-            case THREES -> score = getOnesToSixesScore(diceCount,3);
-            case FOURS -> score = getOnesToSixesScore(diceCount,4);
-            case FIVES -> score = getOnesToSixesScore(diceCount,5);
-            case SIXES -> score = getOnesToSixesScore(diceCount,6);
+            case ONES -> score = getOnesToSixesScore(diceCount, 1);
+            case TWOS -> score = getOnesToSixesScore(diceCount, 2);
+            case THREES -> score = getOnesToSixesScore(diceCount, 3);
+            case FOURS -> score = getOnesToSixesScore(diceCount, 4);
+            case FIVES -> score = getOnesToSixesScore(diceCount, 5);
+            case SIXES -> score = getOnesToSixesScore(diceCount, 6);
             case PAIR -> score = getOfAKindScore(2, diceCount);
             case TWOPAIRS -> score = getTwoPairScore(diceCount);
             case THREEOFAKIND -> score = getOfAKindScore(3, diceCount);
             case FOUROFAKIND -> score = getOfAKindScore(4, diceCount);
-            case SMALLSTRAIGHT -> score = 15;
-            case BIGSTRAIGHT -> score = 20;
+            case SMALLSTRAIGHT, BIGSTRAIGHT -> score = getStraightScore(diceCount);
 
         }
 
@@ -108,7 +107,18 @@ public class Yatzi {
         return score;
     }
 
-    private int getStraightScore(){
-        return 0;
+    private int getStraightScore(Map<Integer, Integer> diceCount) {
+        int score = 0;
+        int keysCombinedValue = 0;
+        for (Integer key : diceCount.keySet()) {
+            keysCombinedValue += key;
+        }
+        if (keysCombinedValue == 15) {
+            score = 15;
+        }
+        if (keysCombinedValue == 20) {
+            score = 20;
+        }
+        return score;
     }
 }
