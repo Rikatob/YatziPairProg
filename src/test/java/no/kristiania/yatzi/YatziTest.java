@@ -182,6 +182,10 @@ public class YatziTest {
                 2,2,4,4,4
         });
         assertEquals(16,yatziGame.scoreAs(YatziCombination.FULLHOUSE));
+        yatziGame = new Yatzi(new int[]{
+                2,2,4,5,4
+        });
+        assertEquals(0,yatziGame.scoreAs(YatziCombination.FULLHOUSE));
     }
 
 
